@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>ATS Resume Builder</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <header>
+      <h1>ATS Resume Builder</h1>
+    </header>
+
+    <form id="resume-form">
+      <fieldset>
+        <h2>Personal Information</h2>
+        <label for="name">Name:</label>
+        <input type="text" id="Name:" placeholder="Enter your name" />
+        <label for="Email">Email:</label>
+        <input type="email" id="email" placeholder="Enter your email" />
+        <label for="phone">Phone:</label>
+        <input type="text" id="phone" placeholder="Enter your Phone number" />
+        <label for="Website">Website:</label>
+      </fieldset>
+      <fieldset>
+        <a
+          ><input
+            type="text"
+            id="website"
+            placeholder="Enter Your Website link if any"
+        /></a>
+      </fieldset>
+
+      <fieldset>
+        <label for="picture" class="inputname" id="upload"
+          ><strong>Upload Picture:</strong></label
+        >
+        <input
+          type="file"
+          name="picture"
+          id="picture"
+          class="forpic"
+          accept="image"
+        /><br /><br />
+      </fieldset>
+
+      <fieldset>
+        <h2>Education</h2>
+        <input
+          type="text"
+          id="education1"
+          placeholder="Enter your first education"
+        /><br />
+
+        <input
+          type="text"
+          id="education2"
+          placeholder="Enter your second education"
+        />
+        <br />
+        <input
+          type="text"
+          id="education3"
+          placeholder="Enter Your education"
+        /><br />
+
+        <input
+          type="text"
+          id="education4"
+          placeholder="Enter more education if needed"
+        />
+        <br />
+      </fieldset>
+
+      <fieldset>
+        <h2>Work Experience</h2>
+        <input
+          type="text"
+          id="experience1"
+          placeholder="Enter Your first work experience"
+        />
+
+        <br />
+
+        <input
+          type="text"
+          id="experience2"
+          placeholder="Enter Your second work experience"
+        />
+
+        <br />
+
+        <input
+          type="text"
+          id="experience3"
+          placeholder="Add additional experience"
+        />
+        <br />
+
+        <input
+          type="text"
+          id="experience4"
+          placeholder="Enter more experience if needed"
+        />
+      </fieldset>
+      <fieldset>
+        <h2>Skills</h2>
+
+        <input type="text" id="skill1" placeholder="Enter a Skill" />
+
+        <br />
+
+        <input type="text" id="skill2" placeholder="Add additional skill" />
+
+        <br />
+
+        <input type="text" id="skill3" placeholder="Enter another skill " />
+
+        <br />
+
+        <input
+          type="text"
+          id="skill4"
+          placeholder="Add more skills if needed"
+        />
+
+        <br />
+      </fieldset>
+      <br />
+      <br />
+      <button id="generate Resume" type="submit">
+        <br />
+        <b>Generate Resume</b>
+      </button>
+      <br />
+    </form>
+    <br />
+    <!-- Dynamic and Editable Resume -->
+    <div id="resume-display" contenteditable="true">
+      <!--Resume will be generated below-->
+    </div>
+    <!-- <Download Resume Button -->
+    <div>
+      <button class="pdfbutton" onclick="downloadResume()">
+        Download Resume
+      </button>
+    </div>
+    <script>
+      // Download function
+      function downloadResume() {
+        const resumeContent =
+          document.getElementById("resume-display").innerHTML;
+        const blob = new Blob([resumeContent], { type: "text/html" });
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement("a");
+        link.href = url;
+        link.download = "Download_Resume.html";
+        link.click();
+        URL.revokeObjectURL(url);
+      }
+    </script>
+    <script src="scripts.js"></script>
+  </body>
+</html>
